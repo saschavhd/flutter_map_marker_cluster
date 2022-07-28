@@ -507,7 +507,7 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
     final popupOptions = widget.options.popupOptions;
     if (popupOptions != null) {
       layers.add(PopupLayer(
-        popupState: PopupState.maybeOf(context, listen: false)!,
+        popupState: PopupState.maybeOf(context, listen: false) ?? PopupState(initiallySelectedMarkers: []),
         popupBuilder: popupOptions.popupBuilder,
         popupSnap: popupOptions.popupSnap,
         popupController: popupOptions.popupController,
@@ -592,7 +592,7 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
         final popupOptions = widget.options.popupOptions!;
         popupOptions.markerTapBehavior.apply(
           marker.marker,
-          PopupState.maybeOf(context, listen: false)!,
+          PopupState.maybeOf(context, listen: false) ?? PopupState(initiallySelectedMarkers: []),
           popupOptions.popupController,
         );
       }
